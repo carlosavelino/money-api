@@ -24,7 +24,7 @@ import com.avelino.money.api.repository.CategoriaRepository;
 @RequestMapping("/categorias") //realiza o mapeamento da requisição 
 public class CategoriaResource {
 	
-	@Autowired //notação vai encontrar uma implementação de CategoriaRepository e vai injetar em categoriaRepository
+	@Autowired   //notação vai encontrar uma implementação de CategoriaRepository e vai injetar em categoriaRepository
 	private CategoriaRepository categoriaRepository;
 	
 	@Autowired //dispara evento 
