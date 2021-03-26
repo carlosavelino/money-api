@@ -1,8 +1,5 @@
 package com.avelino.money.api.exceptionhandler;
 
-
-
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -48,7 +45,7 @@ public class MoneyExceptionHandler extends ResponseEntityExceptionHandler{
 	}
 	@ExceptionHandler({EmptyResultDataAccessException.class})
 	@ResponseStatus(HttpStatus.NOT_FOUND)
-	public ResponseEntity<Object> handleEmptyResultDataAccesExption(EmptyResultDataAccessException ex, WebRequest request) {
+	public ResponseEntity<Object> handleEmptyResultDataAccessException(EmptyResultDataAccessException ex, WebRequest request) {
 		String mensagemUsuario = messageSource.getMessage("recurso.nao-encontrado", null, LocaleContextHolder.getLocale());
 		String mensagemDesemvolvedor = ex.toString();
 		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesemvolvedor));
