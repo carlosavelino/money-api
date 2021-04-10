@@ -35,14 +35,14 @@ public class MoneyExceptionHandler extends ResponseEntityExceptionHandler{
 		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesemvolvedor));
 		return handleExceptionInternal(ex, erros, headers, HttpStatus.BAD_REQUEST, request);
 	}
-	
-	
+		
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		List<Erro> erros = criarListaDeErros(ex.getBindingResult());
 		return handleExceptionInternal(ex, erros, headers, HttpStatus.BAD_REQUEST, request);
 	}
+	
 	@ExceptionHandler({EmptyResultDataAccessException.class})
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public ResponseEntity<Object> handleEmptyResultDataAccessException(EmptyResultDataAccessException ex, WebRequest request) {
@@ -51,6 +51,7 @@ public class MoneyExceptionHandler extends ResponseEntityExceptionHandler{
 		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesemvolvedor));
 		return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
 	}
+	
 	
 	
 	private List<Erro> criarListaDeErros(BindingResult bindingResult){
